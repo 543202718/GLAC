@@ -239,17 +239,16 @@ public final class OnlinePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        update(1, Double.NaN);
-//        if (reading) {
-//            reading = false;
-//            reader.stopReading();
-//            jButton2.setText("StartReading");
-//        }//停止读取
-//        else {
-//            reading = true;
-//            reader.startReading();
-//            jButton2.setText("StopReading");
-//        }//开始读取
+        if (reading) {
+            reading = false;
+            reader.stopReading();
+            jButton2.setText("StartReading");
+        }//停止读取
+        else {
+            reading = true;
+            reader.startReading();
+            jButton2.setText("StopReading");
+        }//开始读取
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
