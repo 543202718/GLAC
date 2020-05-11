@@ -22,6 +22,7 @@
 GLAC是一个基于商用UHF RFID设备的实时追踪系统，可以对高速运动的RFID标签进行精准追踪。它的总体思想是，将追踪问题构建为HMM，构建一个包含所有歧义性的候选轨迹网络，每一条候选轨迹都用一个EKF表示。随着观测的增加，候选轨迹的概率会发生变化，最后只会存在一个接近于真实情况的候选轨迹。
 
 ## 快速开始
+
 ### 第一步：获取源码
 克隆或下载本仓库。
 ### 第二步：导入工程
@@ -66,7 +67,7 @@ public ArrayList<Pair<Double, Double>> getVelocity();
 
 在追踪中，我们通过clear方法清空HMM保存的信息，为一次崭新的追踪做准备；通过add方法不断向HMM提供新的观测，更新轨迹状态；通过getTrajectory和getVelocity获取当前的追踪结果。
 
-类库的使用可以参考Simulation.java文件中的track()方法，更加详细的说明请参阅其Javadoc(lib文件夹下的lib_GLAC_javadoc.zip文件)。
+类库的使用可以参考Simulation.java文件中的track方法，更加详细的说明请参阅其Javadoc(lib文件夹下的lib_GLAC_javadoc.zip文件)。
 
 ## 参数说明
 Config.json文件是配置文件，存放着GLAC系统的所有参数。当前的参数设置是默认参数，修改这些参数可能会影响性能，甚至导致程序运行失败。事实上，该文件是Config类转化为json后导出得到的，参数类型、默认值和具体意义如下（位置的单位是cm，速度的单位是cm/s）：
@@ -128,6 +129,8 @@ data目录下存放着部分实验数据，包括以10cm/s和40cm/s直线运动�
         |- MyChart.java 封装JFreeChart
         |- MyUtils.java 一些需要用到的工具方法
         |- MyRandom.java 对java.util.Random做的扩展
+	|- com
+		|- thingmagic 包含ThingMagic的API
 |- build.xml Apache Ant的配置文件
 |- Config.json GLAC的配置文件
 |- manifest.mf 
