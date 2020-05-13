@@ -1,4 +1,5 @@
 # GLAC
+语言： [English](./README_en.md) | 中文
 - [GLAC](#glac)
   - [简介](#%e7%ae%80%e4%bb%8b)
   - [快速开始](#%e5%bf%ab%e9%80%9f%e5%bc%80%e5%a7%8b)
