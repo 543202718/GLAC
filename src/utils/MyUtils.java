@@ -2,6 +2,7 @@ package utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,14 +16,11 @@ public class MyUtils {
     private static double ndis[];
 
     private static void prepareNormal() {
-        try {
-            ndis = new double[7000];
-            Scanner sc = new Scanner(new File("NormalDistribution.txt"));
-            for (int i = 0; i < 7000; i++) {
-                ndis[i] = sc.nextDouble();
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MyUtils.class.getName()).log(Level.SEVERE, null, ex);
+        ndis = new double[7000];
+        InputStream input = MyUtils.class.getResourceAsStream("../NormalDistribution.txt");
+        Scanner sc = new Scanner(input);
+        for (int i = 0; i < 7000; i++) {
+            ndis[i] = sc.nextDouble();
         }
     }
 

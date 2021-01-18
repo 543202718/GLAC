@@ -4,8 +4,9 @@ Language: English | [中文](./README.md)
 - [GLAC](#glac)
   - [Introduction](#introduction)
   - [Quick start](#quick-start)
+    - [Environment](#environment)
     - [First: Source code](#first-source-code)
-    - [Second: Import](#second-import)
+    - [Second: Package](#second-package)
     - [Third: Run](#third-run)
   - [Feature](#feature)
     - [Online Tracking](#online-tracking)
@@ -22,19 +23,26 @@ Language: English | [中文](./README.md)
 
 ## Introduction
 GLAC is a realtime tracking system based on COTS RFID devices, which is able to accurately track an RFID tag with high-speed motions. 
-Its main idea is to transform the RFID tracking problem into an HMM and construct an network including all candidate trajectories. 
+Its main idea is to transform the RFID tracking problem into an HMM and construct a network including all candidate trajectories. 
 Each trajectory is represented by an EKF. With more and more observations, the probability of candidate trajectories will change. 
 Finally there will be only one trajectory close to the groundtruth.
 
 ## Quick start
-
+### Environment
++ Java >= 1.8
++ Apache Ant >= 1.10.6
 ### First: Source code
 Clone or download this repository.
-### Second: Import
-This project is built with Apache Ant. 
-It's recommended to import the entire warehouse as a project with NetBeans 8.2 or choose another appropriate ways.
+### Second: Package
+Execute the following command in the root directory of this project: 
+```
+ant clean jar
+```
 ### Third: Run
-Click the "Run Project" button of NetBeans or choose another ways.
+The executable JAR is dist/GLAC-with-dependencies.jar, execute the following command to run: 
+```
+java -jar dist/GLAC-with-dependencies.jar
+```
 
 ## Feature
 ### Online Tracking

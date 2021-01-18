@@ -1,35 +1,45 @@
 # GLAC
 语言： [English](./README_en.md) | 中文
 - [GLAC](#glac)
-  - [简介](#%e7%ae%80%e4%bb%8b)
-  - [快速开始](#%e5%bf%ab%e9%80%9f%e5%bc%80%e5%a7%8b)
-    - [第一步：获取源码](#%e7%ac%ac%e4%b8%80%e6%ad%a5%e8%8e%b7%e5%8f%96%e6%ba%90%e7%a0%81)
-    - [第二步：导入工程](#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e5%af%bc%e5%85%a5%e5%b7%a5%e7%a8%8b)
-    - [第三步：运行](#%e7%ac%ac%e4%b8%89%e6%ad%a5%e8%bf%90%e8%a1%8c)
-  - [功能](#%e5%8a%9f%e8%83%bd)
-    - [在线追踪(Online Tracking)](#%e5%9c%a8%e7%ba%bf%e8%bf%bd%e8%b8%aaonline-tracking)
-    - [离线追踪(Offline Tracking)](#%e7%a6%bb%e7%ba%bf%e8%bf%bd%e8%b8%aaoffline-tracking)
-    - [仿真测试(Simulation)](#%e4%bb%bf%e7%9c%9f%e6%b5%8b%e8%af%95simulation)
-    - [批量处理(Batch Processing)](#%e6%89%b9%e9%87%8f%e5%a4%84%e7%90%86batch-processing)
-    - [参数设置(Config Setting)](#%e5%8f%82%e6%95%b0%e8%ae%be%e7%bd%aeconfig-setting)
-  - [核心代码说明](#%e6%a0%b8%e5%bf%83%e4%bb%a3%e7%a0%81%e8%af%b4%e6%98%8e)
-  - [参数说明](#%e5%8f%82%e6%95%b0%e8%af%b4%e6%98%8e)
-  - [数据说明](#%e6%95%b0%e6%8d%ae%e8%af%b4%e6%98%8e)
-    - [标签数据(TagData)](#%e6%a0%87%e7%ad%be%e6%95%b0%e6%8d%aetagdata)
-    - [基准数据(GroundTruth)](#%e5%9f%ba%e5%87%86%e6%95%b0%e6%8d%aegroundtruth)
-  - [文件说明](#%e6%96%87%e4%bb%b6%e8%af%b4%e6%98%8e)
+  - [简介](#简介)
+  - [快速开始](#快速开始)
+    - [环境需求](#环境需求)
+    - [第一步：获取源码](#第一步获取源码)
+    - [第二步：打包项目](#第二步打包项目)
+    - [第三步：运行](#第三步运行)
+  - [功能](#功能)
+    - [在线追踪(Online Tracking)](#在线追踪online-tracking)
+    - [离线追踪(Offline Tracking)](#离线追踪offline-tracking)
+    - [仿真测试(Simulation)](#仿真测试simulation)
+    - [批量处理(Batch Processing)](#批量处理batch-processing)
+    - [参数设置(Config Setting)](#参数设置config-setting)
+  - [核心代码说明](#核心代码说明)
+  - [参数说明](#参数说明)
+  - [数据说明](#数据说明)
+    - [标签数据(TagData)](#标签数据tagdata)
+    - [基准数据(GroundTruth)](#基准数据groundtruth)
+  - [文件说明](#文件说明)
 
 ## 简介
 GLAC是一个基于商用UHF RFID设备的实时追踪系统，可以对高速运动的RFID标签进行精准追踪。它的总体思想是，将追踪问题构建为HMM，构建一个包含所有歧义性的候选轨迹网络，每一条候选轨迹都用一个EKF表示。随着观测的增加，候选轨迹的概率会发生变化，最后只会存在一个接近于真实情况的候选轨迹。
 
 ## 快速开始
 
+### 环境需求
++ Java >= 1.8
++ Apache Ant >= 1.10.6
 ### 第一步：获取源码
 克隆或下载本仓库。
-### 第二步：导入工程
-本项目使用Apache Ant构建，建议采用NetBeans 8.2将整个仓库作为工程导入，或自行选择合适的方式导入。
+### 第二步：打包项目
+在项目的根目录下执行下面的命令：
+```
+ant clean jar
+```
 ### 第三步：运行
-点击NetBeans的“运行项目”按钮运行本程序，或者采用其它合适的方式。
+可执行的Jar包是dist/GLAC-with-dependencies.jar，执行下面的命令以运行程序：
+```
+java -jar dist/GLAC-with-dependencies.jar
+```
 
 ## 功能
 ### 在线追踪(Online Tracking)
